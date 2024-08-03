@@ -1,5 +1,5 @@
 const shortid = require('shortid')
-const URL=require("../router/url")
+const URL=require("../model/url")
 async function handleGivingSHORT_URLS(req,res) {
 
     const body=req.body;
@@ -16,7 +16,22 @@ async function handleGivingSHORT_URLS(req,res) {
     })
     return res.json({id:shortiD})
 }
+async function handleGetUrl(req,res) {
+    const shortID=req.params.shortID
+    const entry=await URL.findOneAndUpdate({
+        shortID
+    },{
+        $push:{
+            visitHistory: {
+                timestamp: Date.now()
+            }
+        },
+
+    })
+    res.redirect(entry.requiredURL)
+}
 
 module.exports={
     handleGivingSHORT_URLS,
+    handleGetUrl,
 }

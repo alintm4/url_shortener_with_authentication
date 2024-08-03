@@ -13,20 +13,19 @@ const urlSchema = new mongoose.Schema(
     },
 
     visitHistory: [
-      {
-        totalClicks: {
-          timestamp: { type: Number },
-        },
-      },
+      
+        {
+          timestamp: { type: Number }
+        }
+      
     ],
   },
   {
-    timestamps: true,
+    timestamp: true,
   }
 );
 
 const URL = mongoose.model("url", urlSchema);
 
-module.exports = {
-  URL,
-};
+module.exports = URL
+

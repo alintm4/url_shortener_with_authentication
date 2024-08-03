@@ -4,12 +4,18 @@ const app = express();
 const { connectToDb } = require("./connectiondb");
 PORT = 8001;
 
-connectToDb('mongodb://127.0.0.1:27017/shorrt_url').then(() =>
+connectToDb('mongodb://127.0.0.1:27017/shorrt-url').then(() =>
   console.log("connected to db")
 ).catch(err => console.log(err));
-app.use("/", urlRoute);
+
+//middleware
 
 app.use(express.json())
+
+app.use("/url", urlRoute);
+
+
+
 app.listen(PORT, () => {
   console.log("Server connected");
 });
