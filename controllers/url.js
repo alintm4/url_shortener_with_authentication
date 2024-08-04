@@ -14,7 +14,10 @@ async function handleGivingSHORT_URLS(req,res) {
 
 
     })
-    return res.json({id:shortiD})
+    // return res.json({id:shortiD})
+    return res.render("home",{
+        id:shortiD,
+    })
 }
 async function handleGetUrl(req,res) {
     const shortID=req.params.shortID
