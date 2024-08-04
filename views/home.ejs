@@ -8,39 +8,36 @@
   <body>
     <h1>URl Shortener</h1>
     <% if (locals.id) { %>
-     <p>Url Generated: http://localhost:8001/url/<%= id %></p>
+    <p>Url Generated: http://localhost:8001/url/<%= id %></p>
     <% } %>
     <div>
-    <form method="POST" action="/url">
-      <p>Enter your url</p>
-      <input type="text" name="url" placeholder="https://example.com" />
-      <button type="submit">Shorten your URL</button>
-      
-    </form>
-</div>
-<div>
-    <% if (locals.urls) { %>
-     <table>
+      <form method="POST" action="/url">
+        <p>Enter your url</p>
+        <input type="text" name="url" placeholder="https://example.com" />
+        <button type="submit">Shorten your URL</button>
+      </form>
+    </div>
+    <div>
+      <% if (locals.urls) { %>
+      <table>
         <thead>
-            <th>S.N</th>
-            <th>Short ID</th>
-            <th>Redirect </th>
-            <th>Clicks</th>
+          <th>S.N</th>
+          <th>Short ID</th>
+          <th>Redirect</th>
+          <th>Clicks</th>
         </thead>
         <tbody>
-            
-            <% urls.forEach((url,index)=> { %>
-                <tr>
-                <td><%= index+1 %></td>
-                <td><%= url.shortID %></td>
-                <td><%= url.requiredURL %></td>
-                <td><%= url.visitHistory.length %></td>
-            </tr>
-            <% }) %>
-            
+          <% urls.forEach((url,index)=> { %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= url.shortID %></td>
+            <td><%= url.requiredURL %></td>
+            <td><%= url.visitHistory.length %></td>
+          </tr>
+          <% }) %>
         </tbody>
-     </table>
-    <% } %>
-</div>
+      </table>
+      <% } %>
+    </div>
   </body>
 </html>
