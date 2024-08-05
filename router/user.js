@@ -8,4 +8,4 @@ router.post("/",handleSignUp)
 router.post("/login",handleLogin)
 
 
-module.exports=router
+module.exports=router;

@@ -9,6 +9,7 @@ async function handleGivingSHORT_URLS(req, res) {
     shortID: shortiD,
     requiredURL: body.url,
     visitHistory: [],
+    createdBy: req.user._id,
   });
   // return res.json({id:shortiD})
   return res.render("home", {
@@ -31,8 +32,17 @@ async function handleGetUrl(req, res) {
   );
   res.redirect(entry.requiredURL);
 }
+async function handleGetAnalytics(req, res) {
+  const shortId = req.params.shortID;
+  const result = await URL.findOne({ shortId });
+  return res.json({
+    totalClicks: result.visitHistory.length,
+    analytics: result.visitHistory,
+  });
+}
 
 module.exports = {
   handleGivingSHORT_URLS,
   handleGetUrl,
+  handleGetAnalytics,
 };
