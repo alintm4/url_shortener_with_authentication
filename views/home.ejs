@@ -6,14 +6,18 @@
     <title>Haha</title>
   </head>
   <body>
-    <h1>URl Shortener</h1>
+    <h1>
+      <a href="/" style="text-decoration: none; color: inherit;" >URL Shortener</a>
+    </h1>
+  
     <% if (locals.id) { %>
       <p>URL Generated: http://localhost:8001/url/<%= id %></p>
       <% } %>
     <div>
       <form method="POST" action="/url">
+        <p>Make sure your link format is of http://example.com</p>
         <label>Enter your url</label>
-        <input type="text" name="url" placeholder="https://example.com" />
+        <input type="text" name="url" placeholder="http://example.com" />
         <button type="submit">Shorten your URL</button>
       </form>
     </div>

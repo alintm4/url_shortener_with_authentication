@@ -8,10 +8,12 @@ const { connectToDb } = require("./connectiondb");
 const urlRoute = require("./router/url");
 const staticRoute = require("./router/staticroutes");
 const userRoute = require("./router/user");
+const dotenv = require('dotenv');
 
+dotenv.config();
 //mongoDB
 
-connectToDb(process.env.MONGODB ?? "mongodb://127.0.0.1:27017/for_test")
+connectToDb(process.env.MONGO_URL )
   .then(() => console.log("connected to db"))
   .catch((err) => console.log(err));
 
