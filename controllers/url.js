@@ -30,11 +30,17 @@ async function handleGetUrl(req, res) {
       },
     }
   );
+  if (!entry) {
+    return res.status(404).send('Short URL not found');
+  }
   res.redirect(entry.requiredURL);
 }
 async function handleGetAnalytics(req, res) {
   const shortId = req.params.shortID;
   const result = await URL.findOne({ shortId });
+  if (!result) {
+    return res.status(404).json({ error: 'URL not found' });
+  }
   return res.json({
     totalClicks: result.visitHistory.length,
     analytics: result.visitHistory,
