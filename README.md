@@ -24,13 +24,13 @@ Ensure you have the following installed:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/alintm4/url_shortener_with_authentication.git
+   git clone https://github.com/alintm4/url.git
    ```
 
 2. **Navigate to the Project Directory**:
 
    ```bash
-   cd url_shortener_with_authentication
+   cd url
    ```
 
 3. **Install Dependencies**:
@@ -84,3 +84,4 @@ Contributions are welcome! Please fork the repository and create a pull request 
 
 
 This project is licensed under the MIT License. You can view or download the full license from the [LICENSE file](license.txt).
+
